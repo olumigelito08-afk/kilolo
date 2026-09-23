@@ -33,3 +33,4 @@ docs/design-brief.md  # Original design and content brief
 This is a static single-page app. Host the `dist/` folder on any static host and make
 sure unknown paths fall back to `index.html` (`public/_redirects` covers Netlify and
 Cloudflare Pages; other hosts need an equivalent rewrite rule).
+"# kilolo" 
