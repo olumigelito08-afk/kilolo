@@ -217,7 +217,7 @@ export default function Home() {
       {showIntro && (
         <div
           role="status"
-          className={`fixed inset-0 z-[100] flex -translate-y-5 flex-col items-center justify-center bg-[#edf2f7] px-6 transition-opacity duration-[650ms] sm:translate-y-0 ${introExiting ? "pointer-events-none opacity-0" : "opacity-100"}`}
+          className={`fixed inset-0 z-[100] flex -translate-y-[30px] flex-col items-center justify-center bg-[#edf2f7] px-6 transition-opacity duration-[650ms] sm:translate-y-0 ${introExiting ? "pointer-events-none opacity-0" : "opacity-100"}`}
         >
           <img
             src="/images/logo444.svg"
@@ -230,7 +230,7 @@ export default function Home() {
           />
           <p
             aria-label={introMotto}
-            className="mt-8 min-h-[1.5em] text-center text-xl font-bold tracking-wide text-flame sm:mt-10 sm:text-3xl"
+            className="mt-8 min-h-[1.5em] whitespace-nowrap text-center text-[clamp(0.75rem,4vw,1rem)] font-bold tracking-wide text-flame sm:mt-10 sm:text-3xl"
           >
             {[...typedMotto].map((character, index) => (
               <span key={index}>{character}</span>
@@ -274,7 +274,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-deep/80 to-navy/40" />
 
         <div className="relative mx-auto flex min-h-[92vh] max-w-7xl -translate-y-[9vh] flex-col justify-center px-5 py-24 sm:translate-y-0 sm:px-8">
-          <p className="eyebrow text-[0.576rem] text-bright sm:text-[0.72rem]">
+          <p className="eyebrow text-[0.52rem] text-bright sm:text-[0.72rem]">
             Quality Products. Timely Delivery. Reliable Energy Solutions.
           </p>
           <h1 className="mt-6 max-w-4xl text-[2.4rem] font-extrabold leading-[0.98] text-on-dark sm:text-7xl">
