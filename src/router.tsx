@@ -12,6 +12,7 @@ import Quote from "@/pages/quote";
 import Services from "@/pages/services";
 import Terms from "@/pages/terms";
 import NotFound from "@/pages/not-found";
+import { ErrorPage } from "@/components/error-page";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -21,6 +22,7 @@ const rootRoute = createRootRoute({
     </>
   ),
   notFoundComponent: () => <NotFound />,
+  errorComponent: () => <ErrorPage />,
 });
 
 const indexRoute = createRoute({

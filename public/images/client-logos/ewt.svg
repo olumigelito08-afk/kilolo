@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title">
+  <title id="title">Energy Works Technology</title>
+  <rect width="720" height="180" fill="#edf2f7"/>
+  <path d="M38 52h104v24H66v13h69v22H66v15h76v24H38z" fill="#073b66"/>
+  <path d="M151 52h30l18 69 20-69h27l20 69 18-69h30l-31 98h-31l-20-65-20 65h-31z" fill="#e65d25"/>
+  <text x="351" y="105" fill="#073b66" font-family="Arial,sans-serif" font-size="66" font-weight="800" letter-spacing="4">EWT</text>
+  <text x="354" y="137" fill="#546575" font-family="Arial,sans-serif" font-size="17" letter-spacing="2">ENERGY WORKS TECHNOLOGY</text>
+</svg>

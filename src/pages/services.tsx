@@ -25,7 +25,7 @@ const detail: { title: string; copy: string; image: string }[] = [
   {
     title: "Terminal, Gantry & Bulk Supply",
     copy: "Efficient loading, product handling, storage coordination, dispatch planning, quantity verification, operational documentation and safe movement of product, aligned to customer schedules.",
-    image: "Terminal, Gantry & Bulk Supply.jpg",
+    image: "124.jpg",
   },
   {
     title: "Logistics & Distribution",
@@ -35,7 +35,7 @@ const detail: { title: string; copy: string; image: string }[] = [
   {
     title: "Marine & Petroleum Logistics",
     copy: "Marine logistics solutions, vessel coordination, terminal interface, coastal petroleum logistics, operational planning and strategic marine partnerships.",
-    image: "Marine & Petroleum Logistics.jpeg",
+    image: "122.jpg",
   },
   {
     title: "Retail & Filling Station Operations",

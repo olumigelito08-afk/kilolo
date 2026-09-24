@@ -134,10 +134,10 @@ export default function Products() {
           <div className="mt-12 grid gap-px bg-transparent sm:grid-cols-2 lg:grid-cols-6">
             {quality.map((q, i) => (
               <div key={q} className="hover-tile-dark border border-on-dark/15 bg-navy p-6 group">
-                <p className="text-xs font-bold text-flame transition-all duration-250 group-hover:scale-110 inline-block">
+                <p className="text-xs font-bold text-flame transition-all duration-700 group-hover:scale-110 inline-block">
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-3 text-sm font-bold uppercase tracking-wide transition-colors duration-250 group-hover:text-flame">
+                <p className="mt-3 text-sm font-bold uppercase tracking-wide transition-colors duration-700 group-hover:text-flame">
                   {q}
                 </p>
               </div>

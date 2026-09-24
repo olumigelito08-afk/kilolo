@@ -133,15 +133,15 @@
 }
 
 @theme {
-  --color-navy: #123b5d;
-  --color-deep: #0b1b2e;
-  --color-brand: #1a679e;
+  --color-navy: #0b2742;
+  --color-deep: #061321;
+  --color-brand: #2949b8;
   --color-energy: #dd3b35;
   --color-flame: #f2a52b;
   --color-bright: #aed7d4;
   --color-on-dark: #ffffff;
   --color-on-dark-muted: #c3d3e0;
-  --color-header: #ffffff;
+  --color-header: var(--muted);
   --color-header-border: #d9e0e7;
   --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
 }
@@ -191,19 +191,19 @@
     @apply w-full;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-navy px-6 py-3 text-sm font-bold uppercase tracking-wider text-on-dark transition-colors hover:bg-brand;
+    @apply inline-flex items-center gap-2 bg-navy px-6 py-3 text-sm font-bold uppercase tracking-wider text-on-dark transition-all duration-500 ease-out hover:-translate-y-0.5 hover:bg-brand hover:shadow-lg;
   }
   .btn-energy {
-    @apply inline-flex items-center gap-2 border border-flame bg-flame px-6 py-3 text-sm font-bold uppercase tracking-wider text-deep transition-all duration-300 hover:-translate-y-0.5 hover:bg-energy hover:text-on-dark hover:shadow-xl;
+    @apply inline-flex items-center gap-2 border border-flame bg-flame px-6 py-3 text-sm font-bold uppercase tracking-wider text-deep transition-all duration-500 ease-out hover:-translate-y-0.5 hover:bg-energy hover:text-on-dark hover:shadow-xl;
   }
   .btn-transparent-hover:hover {
     @apply bg-transparent text-flame shadow-none;
   }
   .btn-ghost-dark {
-    @apply inline-flex items-center gap-2 border border-on-dark/40 px-6 py-3 text-sm font-bold uppercase tracking-wider text-on-dark transition-colors hover:bg-on-dark hover:text-navy;
+    @apply inline-flex items-center gap-2 border border-on-dark/40 px-6 py-3 text-sm font-bold uppercase tracking-wider text-on-dark transition-all duration-500 ease-out hover:-translate-y-0.5 hover:bg-on-dark hover:text-navy hover:shadow-lg;
   }
   .btn-outline {
-    @apply inline-flex items-center gap-2 border border-navy px-6 py-3 text-sm font-bold uppercase tracking-wider text-navy transition-colors hover:bg-navy hover:text-on-dark;
+    @apply inline-flex items-center gap-2 border border-navy px-6 py-3 text-sm font-bold uppercase tracking-wider text-navy transition-all duration-500 ease-out hover:-translate-y-0.5 hover:bg-navy hover:text-on-dark hover:shadow-lg;
   }
   .icon-button {
     @apply grid h-11 w-11 place-items-center border border-header-border text-foreground;
@@ -249,7 +249,7 @@
     @apply transition-all duration-200 hover:translate-x-1 hover:text-flame;
   }
   .service-jump {
-    @apply border border-on-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-transparent hover:text-on-dark;
+    @apply border border-on-dark transition-all duration-500 ease-out hover:-translate-y-0.5 hover:bg-transparent hover:text-on-dark;
   }
   .footer-title {
     @apply mb-5 text-xs font-bold uppercase tracking-[0.28em] text-bright;
@@ -264,16 +264,16 @@
     @apply mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24;
   }
   .card-tech {
-    @apply border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-flame hover:shadow-xl;
+    @apply border border-border bg-card p-7 transition-all duration-700 ease-in-out hover:-translate-y-1 hover:border-flame hover:shadow-xl;
   }
   .rule {
     @apply h-px w-full bg-border;
   }
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+    @apply transition-all duration-700 ease-in-out hover:-translate-y-1 hover:shadow-xl;
   }
   .hover-lift-sm {
-    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
+    @apply transition-all duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-lg;
   }
   .hover-glow {
     @apply transition-all duration-300 hover:border-flame hover:shadow-[0_0_0_4px_rgba(255,107,0,0.12)];
@@ -282,16 +282,16 @@
     @apply transition-all duration-200 hover:translate-x-1;
   }
   .hover-card {
-    @apply border border-border bg-background transition-all duration-300 hover:-translate-y-1 hover:border-brand hover:bg-card hover:shadow-2xl;
+    @apply border border-border bg-background transition-all duration-700 ease-in-out hover:-translate-y-1 hover:border-brand hover:bg-card hover:shadow-2xl;
   }
   .hover-card-dark {
-    @apply border border-on-dark/15 bg-navy transition-all duration-300 hover:-translate-y-0.5 hover:border-flame/50 hover:bg-navy/70 hover:shadow-2xl;
+    @apply border border-on-dark/15 bg-navy transition-all duration-700 ease-in-out hover:-translate-y-0.5 hover:border-flame/50 hover:bg-navy/70 hover:shadow-2xl;
   }
   .hover-tile {
-    @apply transition-all duration-250 hover:-translate-y-0.5 hover:bg-card hover:text-brand;
+    @apply transition-all duration-700 ease-in-out hover:-translate-y-1 hover:bg-card hover:text-brand;
   }
   .hover-tile-dark {
-    @apply transition-all duration-250 hover:border-flame/40 hover:bg-on-dark/5 hover:text-bright;
+    @apply transition-all duration-700 ease-in-out hover:-translate-y-1 hover:border-flame/40 hover:bg-on-dark/5 hover:text-bright;
   }
   .hover-image {
     @apply transition-all duration-500 hover:scale-[1.04] hover:saturate-125;
@@ -345,16 +345,46 @@ img {
   background-color: var(--color-muted);
 }
 
-.hero-image-enter {
-  animation: hero-image-in 700ms ease-out both;
+img.site-logo-on-dark {
+  background-color: var(--color-navy);
 }
 
-@keyframes hero-image-in {
-  from {
-    opacity: 0.35;
+img.site-logo-on-light {
+  background-color: var(--background);
+}
+
+.intro-logo-breathe {
+  animation: intro-logo-breathe 2.4s ease-in-out infinite;
+}
+
+.intro-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  background-color: var(--color-brand);
+  vertical-align: -0.12em;
+  animation: intro-cursor-blink 450ms steps(2, start) 2 forwards;
+}
+
+.intro-cursor-typing {
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+}
+
+@keyframes intro-logo-breathe {
+  0%,
+  100% {
+    transform: scale(1);
   }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+@keyframes intro-cursor-blink {
   to {
-    opacity: 1;
+    visibility: hidden;
   }
 }
 

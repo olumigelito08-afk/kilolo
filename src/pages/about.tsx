@@ -151,11 +151,14 @@ export default function About() {
         <SectionHead eyebrow="Operating Structure" title="Eight functions, one delivery chain" />
         <div className="mt-10 grid gap-px bg-transparent sm:grid-cols-2 lg:grid-cols-4">
           {structure.map((s, i) => (
-            <div key={s} className="reveal hover-tile border border-border bg-background p-6 group">
-              <p className="text-xs font-bold text-brand transition-all duration-300 group-hover:text-flame group-hover:scale-110 inline-block">
+            <div
+              key={s}
+              className="reveal group hover-tile border border-border bg-background p-6 transition-all duration-700 ease-in-out hover:bg-flame hover:text-deep"
+            >
+              <p className="inline-block text-xs font-bold text-brand transition-all duration-700 group-hover:scale-110 group-hover:text-deep">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <p className="mt-3 font-bold transition-colors duration-300 group-hover:text-brand">
+              <p className="mt-3 font-bold transition-colors duration-700 group-hover:text-deep">
                 {s}
               </p>
             </div>
@@ -184,9 +187,9 @@ export default function About() {
             {serve.map((s) => (
               <p
                 key={s}
-                className="hover-tile border border-border bg-muted px-5 py-6 text-sm font-semibold transition-all duration-250"
+                className="group hover-tile border border-border bg-muted px-5 py-6 text-sm font-semibold transition-all duration-700 ease-in-out hover:bg-brand hover:text-on-dark"
               >
-                <span className="hover:text-brand transition-colors duration-250">{s}</span>
+                <span className="transition-colors duration-700 group-hover:text-on-dark">{s}</span>
               </p>
             ))}
           </div>

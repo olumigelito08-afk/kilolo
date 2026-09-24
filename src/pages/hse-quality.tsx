@@ -85,10 +85,33 @@ export default function Hse() {
     <Page meta={meta}>
       <PageHero
         eyebrow="HSE & Quality"
-        title="Safety Is Our Priority"
-        copy="Every project we handle moves under procedures designed to protect our people, our customers, the public and the environment. Health, Safety, Environment, and Quality is our priority"
-        copyAccent
-        compact
+        title="Health, Safety and Environment (HSE) Policy"
+        copyWide
+        copy={
+          <div className="space-y-4 text-base leading-8 text-on-dark-muted sm:text-lg">
+            <p>
+              Supreme Energy and Multipurpose Services Ltd is committed to providing a safe,
+              healthy and environmentally responsible workplace for our employees, clients,
+              contractors and the communities where we operate.
+            </p>
+            <p>
+              We integrate health, safety and environmental considerations into all aspects of
+              our operations and decision-making. Our goal is to prevent incidents, protect
+              people, safeguard the environment and ensure compliance with applicable laws,
+              regulations and industry standards.
+            </p>
+            <p>
+              Every employee and contractor is empowered to stop any activity that may pose an
+              unacceptable risk and is encouraged to proactively identify and report hazards.
+              Through continuous improvement, training and leadership commitment, we strive to
+              achieve zero harm in everything we do.
+            </p>
+            <p>
+              The full HSE Policy Statement provides detailed guidance on our commitments,
+              responsibilities and expectations for all stakeholders.
+            </p>
+          </div>
+        }
       />
 
       <section className="bg-navy text-on-dark">
@@ -104,8 +127,8 @@ export default function Hse() {
                 key={h}
                 className="hover-tile-dark border border-on-dark/15 bg-navy px-6 py-6 text-sm font-semibold group"
               >
-                <span className="flex items-center gap-2 transition-all duration-250 group-hover:text-flame group-hover:translate-x-0.5">
-                  <span className="text-flame opacity-0 transition-opacity duration-250 group-hover:opacity-100">
+                <span className="flex items-center gap-2 transition-all duration-700 group-hover:text-flame group-hover:translate-x-0.5">
+                  <span className="text-flame opacity-0 transition-opacity duration-700 group-hover:opacity-100">
                     →
                   </span>
                   {h}

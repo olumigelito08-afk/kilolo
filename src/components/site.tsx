@@ -12,7 +12,47 @@ export function Page({ children, meta }: { children: ReactNode; meta?: Meta[] })
       <SiteHeader />
       <main>{children}</main>
       <SiteFooter />
+      <WhatsAppWidget />
     </div>
+  );
+}
+
+function WhatsAppWidget() {
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => setIsScrolling(false), 700);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
+
+  const message = "Good day, I would like to enquire about...";
+  const whatsappUrl = `https://wa.me/2348168547803?text=${encodeURIComponent(message)}`;
+
+  return (
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with Supreme Energy on WhatsApp"
+      className={`fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:opacity-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40 sm:bottom-7 sm:right-7 ${isScrolling ? "opacity-45" : "opacity-100"}`}
+    >
+      <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M16 2.7A13.1 13.1 0 0 0 4.8 22.6L3 29l6.6-1.7A13.2 13.2 0 1 0 16 2.7Zm0 23.9c-2 0-3.9-.5-5.6-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.6Zm5.9-8c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.3 4.7.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"
+        />
+      </svg>
+    </a>
   );
 }
 
@@ -55,7 +95,7 @@ export function SiteHeader() {
     };
   }, [open]);
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-header-border bg-header/95 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-header-border bg-header">
       <nav className="mx-auto flex h-16 max-w-[1440px] items-center gap-6 px-5 sm:px-8">
         <Link
           to="/"
@@ -93,7 +133,14 @@ export function SiteHeader() {
       {open && (
         <div className="mobile-menu absolute inset-x-0 top-0 z-[60] h-dvh overflow-y-auto bg-navy text-on-dark xl:hidden">
           <div className="flex h-16 items-center justify-between border-b border-on-dark/15 px-5">
-            <span className="eyebrow text-on-dark">Supreme Energy</span>
+            <img
+              src="/images/logo444.svg"
+              alt="Supreme Energy"
+              width="2064"
+              height="512"
+              decoding="async"
+              className="site-logo-on-dark h-9 w-36 object-contain object-left"
+            />
             <button
               className="menu-trigger menu-trigger-dark is-open"
               aria-label="Close menu"
@@ -143,7 +190,7 @@ export function SiteFooter() {
                   height="512"
                   loading="lazy"
                   decoding="async"
-                  className="h-11 w-44 object-contain"
+                  className="site-logo-on-light h-11 w-44 object-contain"
                 />
               </span>
             </Link>
@@ -241,14 +288,16 @@ export function PageHero({
   titleAccent = false,
   copyAccent = false,
   compact = false,
+  copyWide = false,
 }: {
   eyebrow: string;
   title: string;
-  copy: string;
+  copy: ReactNode;
   children?: ReactNode;
   titleAccent?: boolean;
   copyAccent?: boolean;
   compact?: boolean;
+  copyWide?: boolean;
 }) {
   return (
     <section className="bg-navy pt-28 text-on-dark">
@@ -261,11 +310,11 @@ export function PageHero({
         >
           {title}
         </h1>
-        <p
-          className={`mt-7 max-w-2xl text-lg leading-8 ${copyAccent ? "text-flame" : "text-on-dark-muted"}`}
+        <div
+          className={`mt-7 text-lg leading-8 ${copyWide ? "max-w-none" : "max-w-2xl"} ${copyAccent ? "text-flame" : "text-on-dark-muted"}`}
         >
           {copy}
-        </p>
+        </div>
         {children}
       </div>
     </section>
