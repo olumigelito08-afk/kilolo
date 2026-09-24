@@ -273,7 +273,12 @@ function FooterLinks({
       <h3 className="footer-title">{title}</h3>
       <div className="flex flex-col gap-3 text-sm text-on-dark-muted">
         {links.map(([label, to, hash]) => (
-          <Link key={label} to={to} hash={hash} className="footer-link">
+          <Link
+            key={label}
+            to={to}
+            {...(hash ? { hash } : {})}
+            className="footer-link"
+          >
             {label}
           </Link>
         ))}
