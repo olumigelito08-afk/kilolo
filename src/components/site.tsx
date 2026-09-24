@@ -307,7 +307,7 @@ export function PageHero({
   copyWide?: boolean;
 }) {
   return (
-    <section className="bg-navy pt-14 text-on-dark sm:pt-28">
+    <section className="bg-navy pt-28 text-on-dark">
       <div
         className={`mx-auto max-w-7xl px-5 sm:px-8 ${compact ? "pb-10 sm:pb-12" : "pb-20 sm:pb-24"}`}
       >
