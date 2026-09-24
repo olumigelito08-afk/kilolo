@@ -156,6 +156,7 @@ export function SiteHeader() {
               <Link
                 key={to}
                 to={to}
+                onClick={() => setOpen(false)}
                 style={{ animationDelay: `${index * 35}ms` }}
                 className="mobile-menu-link border-b border-on-dark/10 py-4 text-xl transition-all hover:pl-3 hover:text-flame"
               >
@@ -164,6 +165,7 @@ export function SiteHeader() {
             ))}
             <Link
               to="/quote"
+              onClick={() => setOpen(false)}
               className="btn-energy mt-8 w-auto self-center px-3 py-1.5 text-xs"
             >
               Request a Quote <ArrowRight className="h-3.5 w-3.5" />
@@ -215,12 +217,12 @@ export function SiteFooter() {
           <FooterLinks
             title="Services"
             links={[
-              ["Oil & Gas", "/services"],
-              ["Engineering & Technical", "/services"],
-              ["Fabrication", "/services"],
-              ["NDT & Inspection", "/services"],
-              ["Logistics & Equipment", "/services"],
-              ["ICT & Project Management", "/services"],
+              ["Oil & Gas", "/services", "terminal-gantry-and-bulk-supply"],
+              ["Engineering & Technical", "/services", "engineering-and-technical-services"],
+              ["Fabrication", "/services", "fabrication-works"],
+              ["NDT & Inspection", "/services", "ndt-and-inspection"],
+              ["Logistics & Equipment", "/services", "logistics-and-distribution"],
+              ["ICT & Project Management", "/services", "project-management"],
             ]}
           />
           <div>
@@ -264,14 +266,14 @@ function FooterLinks({
   links,
 }: {
   title: string;
-  links: readonly (readonly [string, string])[];
+  links: readonly (readonly [string, string, string?])[];
 }) {
   return (
     <div>
       <h3 className="footer-title">{title}</h3>
       <div className="flex flex-col gap-3 text-sm text-on-dark-muted">
-        {links.map(([label, to]) => (
-          <Link key={label} to={to} className="footer-link">
+        {links.map(([label, to, hash]) => (
+          <Link key={label} to={to} hash={hash} className="footer-link">
             {label}
           </Link>
         ))}
@@ -300,7 +302,7 @@ export function PageHero({
   copyWide?: boolean;
 }) {
   return (
-    <section className="bg-navy pt-28 text-on-dark">
+    <section className="bg-navy pt-14 text-on-dark sm:pt-28">
       <div
         className={`mx-auto max-w-7xl px-5 sm:px-8 ${compact ? "pb-10 sm:pb-12" : "pb-20 sm:pb-24"}`}
       >

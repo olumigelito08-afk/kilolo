@@ -217,7 +217,7 @@ export default function Home() {
       {showIntro && (
         <div
           role="status"
-          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#edf2f7] px-6 transition-opacity duration-[650ms] ${introExiting ? "pointer-events-none opacity-0" : "opacity-100"}`}
+          className={`fixed inset-0 z-[100] flex -translate-y-5 flex-col items-center justify-center bg-[#edf2f7] px-6 transition-opacity duration-[650ms] sm:translate-y-0 ${introExiting ? "pointer-events-none opacity-0" : "opacity-100"}`}
         >
           <img
             src="/images/logo444.svg"
@@ -274,17 +274,17 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-deep/80 to-navy/40" />
 
         <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-5 py-24 sm:px-8">
-          <p className="eyebrow text-bright">
+          <p className="eyebrow text-[0.576rem] text-bright sm:text-[0.72rem]">
             Quality Products. Timely Delivery. Reliable Energy Solutions.
           </p>
-          <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[0.98] text-on-dark sm:text-7xl">
+          <h1 className="mt-6 max-w-4xl text-[2.4rem] font-extrabold leading-[0.98] text-on-dark sm:text-7xl">
             Powering Energy.
             <br />
             Delivering Reliability.
             <br />
             <span className="text-flame">Building Trust.</span>
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-on-dark-muted">
+          <p className="mt-7 max-w-2xl text-[0.9rem] leading-[1.6rem] text-on-dark-muted sm:text-lg sm:leading-8">
             An indigenous Nigerian downstream oil &amp; gas company delivering petroleum product
             sourcing, trading, supply, distribution, retail, product logistics, marine and coastal
             petroleum logistics and LPG supply to commercial, industrial, institutional and retail

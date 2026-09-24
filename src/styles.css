@@ -353,6 +353,14 @@ img.site-logo-on-light {
   background-color: var(--background);
 }
 
+img.client-logo-on-muted {
+  background-color: var(--color-muted);
+}
+
+img.client-logo-on-white {
+  background-color: #fff;
+}
+
 .intro-logo-breathe {
   animation: intro-logo-breathe 2.4s ease-in-out infinite;
 }

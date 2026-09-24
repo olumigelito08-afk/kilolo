@@ -1,6 +1,5 @@
 import { Page, PageHero, SectionHead, ImageGrid } from "@/components/site";
 import type { Meta } from "@/components/seo";
-import { images } from "@/lib/media";
 
 const meta: Meta[] = [
   { title: "Clients & Partners | Supreme Energy" },
@@ -51,6 +50,10 @@ const clients = [
   { name: "SPAR", logo: "/images/client-logos/spar.jpg" },
 ];
 
+const partnershipWhatsAppUrl = `https://wa.me/2348168547803?text=${encodeURIComponent(
+  "I'll like to make enquires on how i can partner with Supreme Energy",
+)}`;
+
 export default function Clients() {
   return (
     <Page meta={meta}>
@@ -62,6 +65,7 @@ export default function Clients() {
 
       <section className="section">
         <SectionHead eyebrow="Clients" title="Project clients" />
+        <p className="mt-3 text-muted-foreground">A look at some of our clients</p>
         <div className="mt-10 grid gap-px bg-transparent sm:grid-cols-2 lg:grid-cols-4">
           {clients.map(({ name, logo }) => {
             const whiteFullBleed = ["Shell", "Chevron", "Presco"].includes(name);
@@ -84,8 +88,7 @@ export default function Clients() {
                   alt={`${name} logo`}
                   loading="lazy"
                   decoding="async"
-                  className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${whiteFullBleed ? "object-cover" : "object-contain mix-blend-multiply"}`}
-                  style={whiteTile ? { backgroundColor: "#fff" } : undefined}
+                  className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${whiteFullBleed ? "object-cover" : "object-contain"} ${whiteTile ? "client-logo-on-white" : "client-logo-on-muted"}`}
                 />
               </div>
             );
@@ -106,19 +109,37 @@ export default function Clients() {
               "Marine & Vessel Partners",
               "Haulage & Distribution Partners",
             ].map((p) => (
-              <div key={p} className="hover-tile border border-border bg-muted p-8 group">
+              <div key={p} className="hover-tile group border border-border bg-muted p-8">
                 <p className="font-bold transition-colors duration-300 group-hover:text-brand">
                   {p}
                 </p>
               </div>
             ))}
           </div>
+          <div className="mt-8 flex justify-center">
+            <a
+              href={partnershipWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Partner with us
+            </a>
+          </div>
         </div>
       </section>
 
       <section className="section">
         <SectionHead eyebrow="Collaboration" title="Working alongside our clients" />
-        <ImageGrid items={images([86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98])} />
+        <div className="mt-10 overflow-hidden border border-border">
+          <img
+            src="/images/big%20boyss.jpeg"
+            alt="Supreme Energy working alongside its clients"
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full object-cover"
+          />
+        </div>
       </section>
     </Page>
   );

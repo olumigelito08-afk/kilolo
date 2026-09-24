@@ -149,14 +149,11 @@ export const logoUrl = "/images/logo444.svg";
 const pub = (name: string) => "/images/" + name.split(" ").join("%20");
 
 export const heroCarouselImages: { src: string; alt: string }[] = [
-  { src: pub("hero image1.png"), alt: "Supreme Energy operations 1" },
-  { src: pub("hero image2.png"), alt: "Supreme Energy operations 2" },
+  { src: pub("Supreme Energy bulk supply operations.png"), alt: "Supreme Energy bulk supply operations" },
+  { src: pub("Supreme Energy head office operations.png"), alt: "Supreme Energy head office operations" },
   { src: pub("hero image3.png"), alt: "Supreme Energy operations 3" },
-  { src: pub("hero image4.jpg"), alt: "Supreme Energy operations 4" },
-  { src: pub("hero image5.jpg"), alt: "Supreme Energy operations 5" },
-  { src: pub("hero image6.jpg"), alt: "Supreme Energy operations 6" },
-  { src: pub("hero image7.jpg"), alt: "Supreme Energy operations 7" },
-  { src: pub("hero imagee.jpeg"), alt: "Supreme Energy operations 8" },
+  { src: pub("Supreme Energy product haulage fleet.png"), alt: "Supreme Energy product haulage fleet" },
+  { src: pub("supreme8.png"), alt: "Supreme Energy operations" },
 ];
 
 export const pubImage = pub;

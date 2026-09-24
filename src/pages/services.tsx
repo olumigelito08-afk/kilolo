@@ -87,7 +87,12 @@ const heritage: { title: string; copy: string; image: string }[] = [
   },
 ];
 
-const slug = (s: string) => s.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and");
+const slug = (s: string) =>
+  s
+    .toLowerCase()
+    .replaceAll("&", "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 export default function Services() {
   return (
@@ -120,8 +125,8 @@ export default function Services() {
           {detail.map((item, i) => (
             <article
               key={item.title}
-              id={slug(services[i] ?? item.title)}
-              className="reveal grid items-center gap-10 lg:grid-cols-2 group"
+              id={slug(item.title)}
+              className="reveal grid scroll-mt-28 items-center gap-10 group lg:grid-cols-2"
             >
               <div className={`overflow-hidden hover-image-border ${i % 2 ? "lg:order-2" : ""}`}>
                 <img
@@ -148,7 +153,10 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="bg-muted">
+      <section
+        id="engineering-and-technical-services"
+        className="scroll-mt-28 bg-muted"
+      >
         <div className="section">
           <SectionHead
             eyebrow="Historical Experience"
