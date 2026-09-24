@@ -273,7 +273,7 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-deep/80 to-navy/40" />
 
-        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-5 py-24 sm:px-8">
+        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl -translate-y-[9vh] flex-col justify-center px-5 py-24 sm:translate-y-0 sm:px-8">
           <p className="eyebrow text-[0.576rem] text-bright sm:text-[0.72rem]">
             Quality Products. Timely Delivery. Reliable Energy Solutions.
           </p>
