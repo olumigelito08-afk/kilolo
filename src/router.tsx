@@ -76,6 +76,10 @@ const projectsRoute = createRoute({
 const quoteRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/quote",
+  validateSearch: (search: Record<string, unknown>) =>
+    typeof search["service"] === "string"
+      ? { service: search["service"] }
+      : {},
   component: Quote,
 });
 

@@ -191,7 +191,8 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col items-start lg:-mt-[38px]">
-            <Link to="/" className="inline-block self-center" aria-label="Supreme Energy home">
+            <div className="flex w-full flex-col items-center md:items-start">
+            <Link to="/" className="inline-block" aria-label="Supreme Energy home">
               <span className="inline-flex bg-navy px-4 pt-3 pb-0">
                 <img
                   src="/images/footer%20logo.svg"
@@ -204,9 +205,10 @@ export function SiteFooter() {
                 />
               </span>
             </Link>
-            <p className="relative z-10 -mt-7 w-full text-left text-sm font-bold text-flame">
+            <p className="relative z-10 -mt-7 w-full -translate-x-[26px] text-center text-sm font-bold text-flame md:translate-x-0">
               ...your satisfaction is our priority
             </p>
+            </div>
             <p className="mt-4 text-sm leading-7 text-on-dark-muted">
               An indigenous Nigerian downstream
               <br />
@@ -400,7 +402,13 @@ export function ImageGrid({
   );
 }
 
-export function ContactForm({ quote = false }: { quote?: boolean }) {
+export function ContactForm({
+  quote = false,
+  initialService,
+}: {
+  quote?: boolean;
+  initialService?: string | undefined;
+}) {
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -422,7 +430,20 @@ export function ContactForm({ quote = false }: { quote?: boolean }) {
             <span>
               Service Required <span className="text-energy">*</span>
             </span>
-            <select name="Service Required" required className="site-input">
+            <select
+              name="Service Required"
+              required
+              className="site-input"
+              defaultValue={
+                ({
+                  AGO: bulkPurchaseServices[0],
+                  PMS: bulkPurchaseServices[1],
+                  LPG: bulkPurchaseServices[2],
+                  LPFO: bulkPurchaseServices[3],
+                  NAPHTHA: bulkPurchaseServices[4],
+                } as Record<string, string>)[initialService ?? ""] ?? ""
+              }
+            >
               <option value="">Select a service</option>
               {[...bulkPurchaseServices, ...services].map((s) => (
                 <option key={s}>{s}</option>

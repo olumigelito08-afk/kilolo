@@ -142,6 +142,7 @@ export default function Products() {
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                   Price
                 </p>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <p className="mt-1 text-4xl font-extrabold text-foreground">
                   <span className="font-normal text-energy">₦</span>
                   {p.price.slice(1)}{" "}
@@ -149,6 +150,10 @@ export default function Products() {
                     {p.priceUnit}
                   </span>
                 </p>
+                  <Link to="/quote" search={{ service: p.code }} hash="quote-details" className="btn-energy mt-1 md:hidden">
+                  Purchase Now <ArrowRight className="h-4 w-4" />
+                </Link>
+                </div>
               </div>
               <div className="mt-6 grid max-w-xl gap-3">
                 {p.specs.map(([label, value]) => (
@@ -183,7 +188,7 @@ export default function Products() {
                   </span>
                 ))}
               </div>
-              <Link to="/quote" className="btn-energy mt-8">
+              <Link to="/quote" search={{ service: p.code }} hash="quote-details" className="btn-energy mt-8 hidden md:inline-flex">
                 Purchase Now <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

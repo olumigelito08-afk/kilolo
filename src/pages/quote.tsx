@@ -1,3 +1,5 @@
+import { useSearch } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { Page, PageHero, SectionHead, ContactForm } from "@/components/site";
 import type { Meta } from "@/components/seo";
 
@@ -25,6 +27,19 @@ const quoteSteps = [
 ];
 
 export default function Quote() {
+  const { service } = useSearch({ from: "/quote" });
+
+  useEffect(() => {
+    if (!service) return;
+    const timeout = window.setTimeout(() => {
+      document.getElementById("quote-details")?.scrollIntoView({
+        block: "start",
+        behavior: "auto",
+      });
+    }, 150);
+    return () => window.clearTimeout(timeout);
+  }, [service]);
+
   return (
     <Page meta={meta}>
       <PageHero
@@ -33,10 +48,10 @@ export default function Quote() {
         copy="Share your project details and we'll prepare a customized solution tailored to your needs."
       />
       <section className="section grid gap-12 lg:grid-cols-[1.4fr_1fr]">
-        <div className="reveal">
+        <div id="quote-details" className="reveal scroll-mt-24">
           <SectionHead eyebrow="Quotation Request" title="Project & supply details" />
-          <div className="mt-8">
-            <ContactForm quote />
+          <div id="quote-form" className="mt-8 scroll-mt-24">
+            <ContactForm quote initialService={service} />
           </div>
         </div>
         <aside className="reveal lg:sticky lg:top-28 lg:self-start">
