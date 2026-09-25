@@ -212,7 +212,7 @@
     @apply grid h-11 w-11 place-items-center border border-on-dark/30 text-on-dark;
   }
   .menu-trigger {
-    @apply relative grid h-12 w-12 place-items-center overflow-hidden border border-header-border bg-background shadow-sm transition-all duration-300 hover:border-flame hover:bg-muted hover:shadow-md;
+    @apply relative grid h-12 w-12 place-items-center overflow-hidden border border-transparent bg-transparent transition-all duration-300 hover:border-transparent hover:bg-transparent hover:shadow-none;
   }
   .menu-trigger span {
     @apply absolute h-0.5 w-6 bg-foreground transition-all duration-300;
@@ -234,7 +234,7 @@
     transform: rotate(-45deg);
   }
   .menu-trigger-dark {
-    @apply border-on-dark/30 bg-transparent;
+    @apply border-transparent bg-transparent shadow-none hover:border-transparent hover:bg-transparent hover:shadow-none;
   }
   .menu-trigger-dark span {
     @apply bg-on-dark;

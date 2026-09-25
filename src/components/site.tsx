@@ -206,10 +206,18 @@ export function SiteHeader() {
             <Link
               to="/quote"
               onClick={() => setOpen(false)}
-              className="btn-energy mt-8 w-auto self-center px-3 py-1.5 text-xs"
+              className="btn-energy mt-8 w-auto self-center px-3 py-1.5 text-xs hover:bg-flame hover:text-deep hover:opacity-50"
             >
               Request a Quote <ArrowRight className="h-3.5 w-3.5" />
             </Link>
+            <a
+              href="/images/Supreme%20Energy%20Profile%20NW.pdf"
+              download="Supreme Energy Profile NW.pdf"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex w-auto items-center gap-2 self-center rounded-full bg-red-600 px-3 py-1.5 text-xs font-bold text-white transition-opacity hover:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+            >
+              Download Profile <Download className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
       )}
