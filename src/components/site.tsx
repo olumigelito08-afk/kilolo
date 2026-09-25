@@ -190,21 +190,21 @@ export function SiteFooter() {
     <footer className="bg-navy text-on-dark">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+          <div className="flex flex-col items-start lg:-mt-[38px]">
             <Link to="/" className="inline-block" aria-label="Supreme Energy home">
-              <span className="inline-flex bg-background px-3 py-2">
+              <span className="inline-flex bg-navy px-4 pt-3 pb-0">
                 <img
-                  src="/images/logo444.svg"
+                  src="/images/footer%20logo.svg"
                   alt="Supreme Energy"
-                  width="2064"
-                  height="512"
+                  width="1024"
+                  height="1024"
                   loading="lazy"
                   decoding="async"
-                  className="site-logo-on-light h-11 w-44 object-contain"
+                  className="site-logo-on-dark h-36 w-36 object-contain"
                 />
               </span>
             </Link>
-            <p className="mt-3 text-sm font-bold text-flame">
+            <p className="-mt-[21px] text-sm font-bold text-flame">
               ...your satisfaction is our priority
             </p>
             <p className="mt-4 text-sm leading-7 text-on-dark-muted">
