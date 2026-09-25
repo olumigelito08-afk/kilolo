@@ -191,7 +191,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col items-start lg:-mt-[38px]">
-            <Link to="/" className="inline-block" aria-label="Supreme Energy home">
+            <Link to="/" className="inline-block self-center" aria-label="Supreme Energy home">
               <span className="inline-flex bg-navy px-4 pt-3 pb-0">
                 <img
                   src="/images/footer%20logo.svg"
@@ -200,16 +200,19 @@ export function SiteFooter() {
                   height="1024"
                   loading="lazy"
                   decoding="async"
-                  className="site-logo-on-dark h-36 w-36 object-contain"
+                  className="site-logo-on-dark -translate-x-[25px] h-36 w-36 object-contain"
                 />
               </span>
             </Link>
-            <p className="-mt-[21px] text-sm font-bold text-flame">
+            <p className="relative z-10 -mt-7 w-full text-left text-sm font-bold text-flame">
               ...your satisfaction is our priority
             </p>
             <p className="mt-4 text-sm leading-7 text-on-dark-muted">
-              An indigenous Nigerian downstream oil & gas company delivering reliable energy
-              solutions.
+              An indigenous Nigerian downstream
+              <br />
+              oil &amp; gas company delivering reliable
+              <br />
+              energy solutions.
             </p>
           </div>
           <FooterLinks

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Droplets, ThermometerSun } from "lucide-react";
 import { Page, PageHero, SectionHead, ImageGrid } from "@/components/site";
 import type { Meta } from "@/components/seo";
 import { pubImage } from "@/lib/media";
@@ -36,6 +36,12 @@ const products = [
       "Other Bulk Consumers",
     ],
     image: "Automotive Gas Oil (Diesel).jpeg",
+    price: "₦920",
+    priceUnit: "/litre",
+    specs: [
+      ["Density", "0.820–0.880 kg/L"],
+      ["Flash point", "≥ 55°C"],
+    ],
   },
   {
     code: "PMS",
@@ -43,6 +49,12 @@ const products = [
     copy: "Retail filling station supply, commercial, institutional and bulk distribution with product quality, safe handling, customer convenience and demand-based replenishment.",
     tags: ["Retail Stations", "Commercial", "Institutional", "Bulk Distribution"],
     image: "Premium Motor Spirit (Petrol).webp",
+    price: "₦650",
+    priceUnit: "/litre",
+    specs: [
+      ["Density", "0.720–0.775 kg/L"],
+      ["Flash point", "≤ −40°C"],
+    ],
   },
   {
     code: "LPG",
@@ -50,6 +62,12 @@ const products = [
     copy: "Sourcing, supply and distribution of LPG for commercial and domestic applications, with safety-conscious handling and reliable delivery.",
     tags: ["Commercial", "Domestic", "Safe Handling", "Scheduled Delivery"],
     image: "Liquefied Petroleum Gas.jpg",
+    price: "₦670",
+    priceUnit: "/kg",
+    specs: [
+      ["Density", "0.500–0.580 kg/L"],
+      ["Flash point", "Approx. −104°C"],
+    ],
   },
   {
     code: "LPFO",
@@ -57,6 +75,12 @@ const products = [
     copy: "Suitable for industrial and commercial energy applications where heavy fuel oil is required.",
     tags: ["Industrial", "Commercial"],
     image: "Low Pour Fuel Oil.jpeg",
+    price: "₦780",
+    priceUnit: "/litre",
+    specs: [
+      ["Density", "0.90–0.99 kg/L"],
+      ["Flash point", "≥ 60°C (grade-dependent; often 60–65°C)"],
+    ],
   },
   {
     code: "NAPHTHA",
@@ -64,6 +88,12 @@ const products = [
     copy: "Part of our bulk petroleum products trading portfolio, with emphasis on commercial and industrial supply.",
     tags: ["Bulk Trading", "Commercial", "Industrial"],
     image: "Naphtha.jpg",
+    price: "₦750,000",
+    priceUnit: "/tonne",
+    specs: [
+      ["Density", "0.63–0.75 g/cm³"],
+      ["Flash point", "Approx. −20°C (grade-dependent)"],
+    ],
   },
 ];
 
@@ -107,6 +137,41 @@ export default function Products() {
               </h2>
               <p className="mt-5 leading-8 text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80">
                 {p.copy}
+              </p>
+              <div className="mt-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                  Price
+                </p>
+                <p className="mt-1 text-4xl font-extrabold text-foreground">
+                  <span className="font-normal text-energy">₦</span>
+                  {p.price.slice(1)}{" "}
+                  <span className="text-base font-normal text-energy">
+                    {p.priceUnit}
+                  </span>
+                </p>
+              </div>
+              <div className="mt-6 grid max-w-xl gap-3">
+                {p.specs.map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="flex flex-col gap-1 border-b border-border/70 pb-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                  >
+                    <span className="flex items-center gap-3 text-muted-foreground">
+                      {label === "Density" ? (
+                        <Droplets className="h-5 w-5 shrink-0 text-brand" />
+                      ) : (
+                        <ThermometerSun className="h-5 w-5 shrink-0 text-energy" />
+                      )}
+                      {label}
+                    </span>
+                    <strong className="pl-8 font-semibold text-foreground sm:pl-0 sm:text-right">
+                      {value}
+                    </strong>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Confirm final values against the product grade and batch certificate.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
