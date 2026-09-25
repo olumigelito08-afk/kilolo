@@ -231,27 +231,29 @@ function ImpactMetric({ value, suffix, label }: { value: number; suffix: string;
     const element = metricRef.current;
     if (!element) return;
 
+    let frame = 0;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
+        if (!entry?.isIntersecting) return;
         observer.disconnect();
 
         const duration = 1400;
         const start = performance.now();
-        let frame = 0;
         const tick = (now: number) => {
           const progress = Math.min((now - start) / duration, 1);
           setCount(Math.round(value * progress));
           if (progress < 1) frame = requestAnimationFrame(tick);
         };
         frame = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(frame);
       },
       { threshold: 0.35 },
     );
 
     observer.observe(element);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
   }, [value]);
 
   return (
