@@ -59,7 +59,7 @@ const business = [
   {
     title: "Product Logistics",
     copy: "Coordinated haulage, route planning and delivery discipline from terminal to customer site.",
-    image: "product logistics.jpg",
+    image: "68.jpg",
   },
   {
     title: "Retail Fuel Operations",

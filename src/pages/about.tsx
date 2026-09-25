@@ -201,7 +201,7 @@ export default function About() {
 
       <section className="bg-muted">
         <div className="section">
-          <SectionHead eyebrow="Who We Serve" title="Customers across Africa's economy" />
+          <SectionHead eyebrow="Who We Serve" title="Customers across Nigeria's economy" />
           <div className="mt-10 grid gap-px bg-transparent sm:grid-cols-2 lg:grid-cols-5">
             {serve.map((s) => (
               <p

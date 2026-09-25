@@ -30,7 +30,7 @@ const detail: { title: string; copy: string; image: string }[] = [
   {
     title: "Logistics & Distribution",
     copy: "Delivery discipline, route coordination, customer visibility, clear communication, complete documentation and responsive service on every trip.",
-    image: "Logistics & Distribution.jpg",
+    image: "67.png",
   },
   {
     title: "Marine & Petroleum Logistics",
