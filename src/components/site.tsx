@@ -1,19 +1,51 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
-import { ArrowRight, Mail, Phone, MapPin, Send } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Send, Download } from "lucide-react";
 import { useReveal } from "@/components/reveal";
 import { useSeo, type Meta } from "@/components/seo";
 
 export function Page({ children, meta }: { children: ReactNode; meta?: Meta[] }) {
   useReveal();
   useSeo(meta);
+  const path = useLocation().pathname;
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main>{children}</main>
       <SiteFooter />
+      {path === "/about" && <ProfileDownloadButton />}
       <WhatsAppWidget />
     </div>
+  );
+}
+
+function ProfileDownloadButton() {
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => setIsScrolling(false), 700);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
+
+  return (
+    <a
+      href="/images/Supreme%20Energy%20Profile%20NW.pdf"
+      download="Supreme Energy Profile NW.pdf"
+      className={`fixed bottom-24 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-flame px-4 py-3 text-sm font-semibold text-deep shadow-lg transition-all duration-300 hover:bg-brand hover:text-white hover:opacity-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/40 sm:bottom-28 sm:right-7 ${isScrolling ? "opacity-45" : "opacity-100"}`}
+    >
+      <Download className="h-4 w-4" aria-hidden="true" />
+      Download Profile
+    </a>
   );
 }
 
