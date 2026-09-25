@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Page, PageHero, SectionHead, ImageGrid } from "@/components/site";
 import type { Meta } from "@/components/seo";
 
@@ -39,9 +40,10 @@ const clients = [
   { name: "Energy Works Technology (EWT)", logo: "/images/client-logos/ewt.svg" },
   { name: "Neconde Energy Limited", logo: "/images/client-logos/neconde.png" },
   { name: "NNPC", logo: "/images/client-logos/nnpc.png" },
+  { name: "NNPC", logo: "/images/client-logos/nnpc-legacy.svg" },
   {
     name: "TotalEnergies",
-    logo: "https://mms.businesswire.com/media/20260128407040/en/2704819/5/Logo_TotalEnergies.svg.jpg",
+    logo: "/images/client-logos/totalenergies.svg",
   },
   { name: "Asharami", logo: "/images/client-logos/asharami.png" },
   { name: "FirstBank", logo: "/images/client-logos/first-bank.png" },
@@ -65,7 +67,7 @@ export default function Clients() {
 
       <section className="section">
         <SectionHead eyebrow="Clients" title="Project clients" />
-        <p className="mt-3 text-muted-foreground">A look at some of our clients</p>
+        <p className="mt-3 text-muted-foreground">Meet Some of Our Clients</p>
         <div className="mt-10 grid gap-px bg-transparent sm:grid-cols-2 lg:grid-cols-4">
           {clients.map(({ name, logo }) => {
             const whiteFullBleed = ["Shell", "Chevron", "Presco"].includes(name);
@@ -80,14 +82,12 @@ export default function Clients() {
             ].includes(name);
             return (
               <div
-                key={name}
+                key={logo}
                 className={`hover-card group flex aspect-[4/3] min-h-36 items-center justify-center border border-border ${whiteFullBleed ? "p-0" : "p-4"} ${whiteTile ? "bg-white" : "bg-muted"}`}
               >
-                <img
+                <ClientLogo
+                  name={name}
                   src={logo}
-                  alt={`${name} logo`}
-                  loading="lazy"
-                  decoding="async"
                   className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${whiteFullBleed ? "object-cover" : "object-contain"} ${whiteTile ? "client-logo-on-white" : "client-logo-on-muted"}`}
                 />
               </div>
@@ -142,5 +142,32 @@ export default function Clients() {
         </div>
       </section>
     </Page>
+  );
+}
+
+function ClientLogo({ name, src, className }: { name: string; src: string; className: string }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <div
+        role="img"
+        aria-label={`${name} logo`}
+        className="flex h-full w-full items-center justify-center px-3 text-center text-lg font-bold text-navy"
+      >
+        {name}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={`${name} logo`}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+      className={className}
+    />
   );
 }

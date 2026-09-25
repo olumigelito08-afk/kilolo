@@ -48,7 +48,7 @@ export default function Privacy() {
         title="Privacy Policy"
         copy="How Supreme Energy handles information submitted through this website."
       />
-      <section className="section max-w-3xl space-y-10">
+      <section className="section space-y-10">
         {sections.map(([title, copy]) => (
           <div key={title}>
             <h2 className="text-2xl font-bold">{title}</h2>

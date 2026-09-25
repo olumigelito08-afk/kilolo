@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 432 288" role="img" aria-labelledby="title">
+  <title id="title">NNPC logo</title>
+  <polygon fill="#cbd900" points="27,77 70,88 70,177 27,216" />
+  <polygon fill="#155b42" points="70,36 207,75 70,177" />
+  <polygon fill="#08a45b" points="207,75 207,214 70,177" />
+  <polygon fill="#ed1c24" points="27,216 70,177 165,202 165,255" />
+  <text x="218" y="219" fill="#5b5d60" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" letter-spacing="2">NNPC</text>
+</svg>

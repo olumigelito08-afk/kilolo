@@ -1,6 +1,5 @@
-import { Page, PageHero, SectionHead, ContactForm, ContactCards } from "@/components/site";
+import { Page, PageHero, SectionHead, ContactForm } from "@/components/site";
 import type { Meta } from "@/components/seo";
-import { pubImage } from "@/lib/media";
 
 const meta: Meta[] = [
   { title: "Request a Quote | Supreme Energy" },
@@ -19,13 +18,19 @@ const meta: Meta[] = [
   { name: "twitter:card", content: "summary_large_image" },
 ];
 
+const quoteSteps = [
+  { title: "Submit Request", copy: "Fill our simple form with your project details" },
+  { title: "Quick Review", copy: "Our experts analyze your requirements" },
+  { title: "Get Your Quote", copy: "Receive a detailed proposal within 24-48 hours" },
+];
+
 export default function Quote() {
   return (
     <Page meta={meta}>
       <PageHero
         eyebrow="Request a Quote"
         title="Tell us what you need supplied"
-        copy="Share your product, volume, delivery location and timeline. Submitting opens a pre-addressed email to our commercial team."
+        copy="Share your project details and we'll prepare a customized solution tailored to your needs."
       />
       <section className="section grid gap-12 lg:grid-cols-[1.4fr_1fr]">
         <div className="reveal">
@@ -34,18 +39,44 @@ export default function Quote() {
             <ContactForm quote />
           </div>
         </div>
-        <div className="reveal">
-          <ContactCards />
-          <div className="hover-image-border mt-6 overflow-hidden">
-            <img
-              src={pubImage("hero image7.jpg")}
-              alt="Supreme Energy bulk supply operations"
-              loading="lazy"
-              decoding="async"
-              className="aspect-[4/3] w-full object-cover transition-all duration-500 hover:scale-[1.04] hover:saturate-125"
-            />
+        <aside className="reveal lg:sticky lg:top-28 lg:self-start">
+          <SectionHead eyebrow="Quote Process" title="How It Works" />
+          <div className="mt-6 space-y-3">
+            {quoteSteps.map((step, index) => (
+              <article key={step.title} className="border border-border bg-muted p-4">
+                <p className="text-xs font-bold text-brand">{String(index + 1).padStart(2, "0")}</p>
+                <h3 className="mt-2 font-bold">{step.title}</h3>
+                <p className="mt-1 text-sm leading-6 text-muted-foreground">{step.copy}</p>
+              </article>
+            ))}
           </div>
-        </div>
+          <div className="mt-6 border border-border bg-muted p-5">
+            <h3 className="text-xl font-extrabold">Need Assistance?</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Our team is ready to help you with your project requirements.
+            </p>
+            <address className="mt-5 space-y-4 text-sm not-italic">
+              <p>
+                <span className="block font-bold">Head Office</span>
+                45, Imam Dauda Street, Off Eric Moore Road, Surulere, Lagos
+              </p>
+              <p>
+                <span className="font-bold">Telephone</span>
+                <br />
+                <a className="text-brand hover:text-energy" href="tel:09024876164">
+                  0902 487 6164
+                </a>
+              </p>
+              <p>
+                <span className="font-bold">Email</span>
+                <br />
+                <a className="text-brand hover:text-energy" href="mailto:info@supreme-energy.com.ng">
+                  info@supreme-energy.com.ng
+                </a>
+              </p>
+            </address>
+          </div>
+        </aside>
       </section>
     </Page>
   );

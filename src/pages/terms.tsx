@@ -45,7 +45,7 @@ export default function Terms() {
         title="Terms & Conditions"
         copy="The terms that apply to the use of this website."
       />
-      <section className="section max-w-3xl space-y-10">
+      <section className="section space-y-10">
         {sections.map(([title, copy]) => (
           <div key={title}>
             <h2 className="text-2xl font-bold">{title}</h2>

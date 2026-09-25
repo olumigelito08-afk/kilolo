@@ -559,7 +559,7 @@ export default function Home() {
           loading="lazy"
           decoding="async"
         />
-        <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
+        <div className="relative mx-auto flex max-w-4xl flex-col items-center px-5 py-24 text-center sm:px-8">
           <h2 className="text-4xl font-extrabold text-on-dark sm:text-5xl">
             Ready to Work With Supreme Energy?
           </h2>
@@ -575,7 +575,7 @@ export default function Home() {
               Contact Us
             </Link>
           </div>
-          <p className="mt-8 text-xs text-on-dark-muted">RC7982142</p>
+          <p className="mt-8 hidden text-xs text-on-dark-muted sm:block">RC7982142</p>
         </div>
       </section>
     </Page>

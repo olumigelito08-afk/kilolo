@@ -227,6 +227,7 @@ export function SiteFooter() {
               ["HSE & Quality", "/hse-quality"],
               ["Clients & Partners", "/clients-partners"],
               ["Contact Us", "/contact"],
+              ["Request a Quote", "/quote"],
             ]}
           />
           <div>
@@ -409,13 +410,15 @@ export function ContactForm({ quote = false }: { quote?: boolean }) {
   return (
     <form onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
       <Field name="Full Name" required />
-      <Field name="Company" />
+      <Field name="Company" required={quote} />
       <Field name="Email" type="email" required />
       <Field name="Phone" type="tel" required />
       {quote && (
         <>
           <label className="field">
-            <span>Service Required</span>
+            <span>
+              Service Required <span className="text-energy">*</span>
+            </span>
             <select name="Service Required" required className="site-input">
               <option value="">Select a service</option>
               {[...bulkPurchaseServices, ...services].map((s) => (
@@ -423,8 +426,8 @@ export function ContactForm({ quote = false }: { quote?: boolean }) {
               ))}
             </select>
           </label>
-          <Field name="Project Location" />
-          <Field name="Required Timeline" />
+          <Field name="Project Location" required />
+          <Field name="Required Timeline" required />
           <label className="field">
             <span>Attachment</span>
             <input
@@ -436,10 +439,13 @@ export function ContactForm({ quote = false }: { quote?: boolean }) {
         </>
       )}
       <label className="field sm:col-span-2">
-        <span>{quote ? "Project Description" : "Message"}</span>
+        <span>
+          {quote ? "Project Description" : "Message"}
+          {!quote && <span className="text-energy"> *</span>}
+        </span>
         <textarea
           name={quote ? "Project Description" : "Message"}
-          required
+          required={!quote}
           rows={6}
           className="site-input resize-none"
         />
@@ -461,7 +467,9 @@ function Field({
 }) {
   return (
     <label className="field">
-      <span>{name}</span>
+      <span>
+        {name} {required && <span className="text-energy">*</span>}
+      </span>
       <input name={name} type={type} required={required} className="site-input" />
     </label>
   );
