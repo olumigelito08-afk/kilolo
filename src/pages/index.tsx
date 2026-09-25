@@ -217,31 +217,33 @@ export default function Home() {
       {showIntro && (
         <div
           role="status"
-          className={`fixed inset-0 z-[100] flex -translate-y-[30px] flex-col items-center justify-center bg-[#edf2f7] px-6 transition-opacity duration-[650ms] sm:translate-y-0 ${introExiting ? "pointer-events-none opacity-0" : "opacity-100"}`}
+          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#edf2f7] px-6 transition-opacity duration-[650ms] ${introExiting ? "pointer-events-none opacity-0" : "opacity-100"}`}
         >
-          <img
-            src="/images/logo444.svg"
-            alt="Supreme Energy"
-            width="2064"
-            height="512"
-            fetchPriority="high"
-            decoding="async"
-            className={`h-auto w-[min(86vw,900px)] bg-[#edf2f7] object-contain ${isTypingMotto ? "intro-logo-breathe" : ""}`}
-          />
-          <p
-            aria-label={introMotto}
-            className="mt-8 min-h-[1.5em] whitespace-nowrap text-center text-[clamp(0.75rem,4vw,1rem)] font-bold tracking-wide text-flame sm:mt-10 sm:text-3xl"
-          >
-            {[...typedMotto].map((character, index) => (
-              <span key={index}>{character}</span>
-            ))}
-            {isTypingMotto && (
-              <span
-                className={`intro-cursor ${typingStarted ? "intro-cursor-typing" : ""}`}
-                aria-hidden="true"
-              />
-            )}
-          </p>
+          <div className="flex -translate-y-[55px] flex-col items-center sm:translate-y-0">
+            <img
+              src="/images/logo444.svg"
+              alt="Supreme Energy"
+              width="2064"
+              height="512"
+              fetchPriority="high"
+              decoding="async"
+              className={`h-auto w-[min(86vw,900px)] bg-[#edf2f7] object-contain ${isTypingMotto ? "intro-logo-breathe" : ""}`}
+            />
+            <p
+              aria-label={introMotto}
+              className="mt-8 min-h-[1.5em] whitespace-nowrap text-center text-[clamp(0.75rem,4vw,1rem)] font-bold tracking-wide text-flame sm:mt-10 sm:text-3xl"
+            >
+              {[...typedMotto].map((character, index) => (
+                <span key={index}>{character}</span>
+              ))}
+              {isTypingMotto && (
+                <span
+                  className={`intro-cursor ${typingStarted ? "intro-cursor-typing" : ""}`}
+                  aria-hidden="true"
+                />
+              )}
+            </p>
+          </div>
         </div>
       )}
       <section className="relative min-h-[92vh] overflow-hidden bg-deep pt-16">

@@ -1,6 +1,6 @@
 import { Page, PageHero, SectionHead, ContactForm, ContactCards } from "@/components/site";
 import type { Meta } from "@/components/seo";
-import { image } from "@/lib/media";
+import { pubImage } from "@/lib/media";
 
 const meta: Meta[] = [
   { title: "Request a Quote | Supreme Energy" },
@@ -38,7 +38,7 @@ export default function Quote() {
           <ContactCards />
           <div className="hover-image-border mt-6 overflow-hidden">
             <img
-              src={image(103)}
+              src={pubImage("hero image7.jpg")}
               alt="Supreme Energy bulk supply operations"
               loading="lazy"
               decoding="async"

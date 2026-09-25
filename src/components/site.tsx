@@ -71,6 +71,14 @@ export const services = [
   "Project Management",
 ];
 
+const bulkPurchaseServices = [
+  "Automotive Gas Oil (Diesel) Bulk Purchase",
+  "Premium Motor Spirit (Petrol) Bulk Purchase",
+  "Liquefied Petroleum Gas Bulk Purchase",
+  "Low Pour Fuel Oil Bulk Purchase",
+  "Naphtha Bulk Purchase",
+];
+
 const nav = [
   ["Home", "/"],
   ["About Us", "/about"],
@@ -208,21 +216,17 @@ export function SiteFooter() {
             title="Company"
             links={[
               ["About Us", "/about"],
-              ["Mission & Core Values", "/about"],
-              ["Organizational Structure", "/about"],
-              ["Our Team", "/about"],
-              ["Projects", "/projects"],
+              ["Services", "/services"],
+              ["Products", "/products"],
             ]}
           />
           <FooterLinks
             title="Services"
             links={[
-              ["Oil & Gas", "/services", "terminal-gantry-and-bulk-supply"],
-              ["Engineering & Technical", "/services", "engineering-and-technical-services"],
-              ["Fabrication", "/services", "fabrication-works"],
-              ["NDT & Inspection", "/services", "ndt-and-inspection"],
-              ["Logistics & Equipment", "/services", "logistics-and-distribution"],
-              ["ICT & Project Management", "/services", "project-management"],
+              ["Projects", "/projects"],
+              ["HSE & Quality", "/hse-quality"],
+              ["Clients & Partners", "/clients-partners"],
+              ["Contact Us", "/contact"],
             ]}
           />
           <div>
@@ -414,7 +418,7 @@ export function ContactForm({ quote = false }: { quote?: boolean }) {
             <span>Service Required</span>
             <select name="Service Required" required className="site-input">
               <option value="">Select a service</option>
-              {services.map((s) => (
+              {[...bulkPurchaseServices, ...services].map((s) => (
                 <option key={s}>{s}</option>
               ))}
             </select>

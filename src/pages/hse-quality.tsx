@@ -116,21 +116,11 @@ export default function Hse() {
 
       <section className="bg-navy text-on-dark">
         <div className="section pt-10 sm:pt-12">
-          <SectionHead
-            dark
-            eyebrow="Downstream HSE"
-            title="Procedures that govern product movement"
-          />
+          <SectionHead dark eyebrow="Downstream HSE" title="Procedures that govern product movement" />
           <div className="mt-12 grid gap-px bg-transparent sm:grid-cols-2 lg:grid-cols-3">
             {hse.map((h) => (
-              <p
-                key={h}
-                className="hover-tile-dark border border-on-dark/15 bg-navy px-6 py-6 text-sm font-semibold group"
-              >
+              <p key={h} className="hover-tile-dark border border-on-dark/15 bg-navy px-6 py-6 text-sm font-semibold group">
                 <span className="flex items-center gap-2 transition-all duration-700 group-hover:text-flame group-hover:translate-x-0.5">
-                  <span className="text-flame opacity-0 transition-opacity duration-700 group-hover:opacity-100">
-                    →
-                  </span>
                   {h}
                 </span>
               </p>
@@ -139,26 +129,16 @@ export default function Hse() {
         </div>
       </section>
 
-      <section className="section grid gap-12 lg:grid-cols-2">
+      <section className="section space-y-12">
         <div className="reveal">
-          <SectionHead
-            eyebrow="Quality Assurance"
-            title="High-quality services"
-            copy="Quality control is managed by an in-house quality control department headed by a qualified engineer, with specifications confirmed, checks carried out and records reconciled."
-          />
+          <SectionHead eyebrow="Quality Assurance" title="High-quality services" copy="Quality control is managed by an in-house quality control department headed by a qualified engineer, with specifications confirmed, checks carried out and records reconciled." />
         </div>
         <div className="reveal">
           <p className="eyebrow text-brand">HSE Programme Areas</p>
           <ul className="mt-6 space-y-3">
             {legacy.map((l) => (
-              <li
-                key={l}
-                className="hover-slide border-b border-border pb-3 text-sm font-semibold transition-all duration-200 group hover:text-brand hover:border-flame/50"
-              >
+              <li key={l} className="hover-slide border-b border-border pb-3 text-sm font-semibold transition-all duration-200 group hover:text-brand hover:border-flame/50">
                 <span className="flex items-center gap-2">
-                  <span className="text-brand opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                    →
-                  </span>
                   {l}
                 </span>
               </li>
@@ -166,7 +146,6 @@ export default function Hse() {
           </ul>
         </div>
       </section>
-
       <section className="bg-muted">
         <div className="section">
           <SectionHead eyebrow="In The Field" title="Safety in practice" />

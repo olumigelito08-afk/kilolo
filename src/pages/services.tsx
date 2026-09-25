@@ -105,13 +105,12 @@ export default function Services() {
       >
         <div className="mt-9 flex flex-wrap gap-3">
           {services.map((s) => (
-            <a
+            <span
               key={s}
-              href={`#${slug(s)}`}
-              className="service-jump hover:shadow-xl bg-on-dark px-4 py-2 text-xs font-semibold uppercase tracking-wide text-navy"
+              className="service-jump cursor-default bg-on-dark px-4 py-2 text-xs font-semibold uppercase tracking-wide text-navy hover:shadow-xl"
             >
               {s}
-            </a>
+            </span>
           ))}
         </div>
       </PageHero>

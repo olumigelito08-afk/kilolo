@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Page, PageHero, SectionHead, ImageGrid } from "@/components/site";
 import type { Meta } from "@/components/seo";
 import { pubImage } from "@/lib/media";
@@ -47,6 +48,15 @@ const serve = [
   "Fleet Operators",
   "Government & Institutional Customers",
   "Retail Consumers",
+];
+const coreValues = [
+  "Integrity",
+  "Reliability",
+  "Quality",
+  "Safety",
+  "Professionalism",
+  "Customer Focus",
+  "Accountability",
 ];
 
 const insideImages = [
@@ -121,15 +131,7 @@ export default function About() {
           <div>
             <p className="eyebrow text-flame">Core Values</p>
             <ul className="mt-4 space-y-2 text-on-dark-muted">
-              {[
-                "Integrity",
-                "Reliability",
-                "Quality",
-                "Safety",
-                "Professionalism",
-                "Customer Focus",
-                "Accountability",
-              ].map((v) => (
+              {coreValues.map((v) => (
                 <li
                   key={v}
                   className="border-b border-on-dark/10 pb-2 hover-slide hover:text-flame transition-all duration-200 cursor-default"
@@ -180,9 +182,26 @@ export default function About() {
         </div>
       </section>
 
+      <section className="bg-navy text-on-dark">
+        <div className="section">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-4xl font-extrabold sm:text-5xl">Our Impact in Numbers</h2>
+            <p className="mt-5 text-lg leading-8 text-on-dark-muted">
+              Delivering excellence across Nigeria's Power Oil &amp; Gas sector with proven results
+            </p>
+          </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <ImpactMetric value={150} suffix="+" label="Projects Completed" />
+            <ImpactMetric value={11} suffix="+" label="Years Experience" />
+            <ImpactMetric value={50} suffix="+" label="Satisfied Clients" />
+            <ImpactMetric value={100} suffix="%" label="Project Success Rate" />
+          </div>
+        </div>
+      </section>
+
       <section className="bg-muted">
         <div className="section">
-          <SectionHead eyebrow="Who We Serve" title="Customers across Nigeria's economy" />
+          <SectionHead eyebrow="Who We Serve" title="Customers across Africa's economy" />
           <div className="mt-10 grid gap-px bg-transparent sm:grid-cols-2 lg:grid-cols-5">
             {serve.map((s) => (
               <p
@@ -201,5 +220,49 @@ export default function About() {
         <ImageGrid items={insideImages} />
       </section>
     </Page>
+  );
+}
+
+function ImpactMetric({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const metricRef = useRef<HTMLDivElement>(null);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const element = metricRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+
+        const duration = 1400;
+        const start = performance.now();
+        let frame = 0;
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          setCount(Math.round(value * progress));
+          if (progress < 1) frame = requestAnimationFrame(tick);
+        };
+        frame = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(frame);
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <div
+      ref={metricRef}
+      className="rounded-2xl border border-on-dark/15 bg-transparent px-6 py-8 text-center"
+    >
+      <p className="text-5xl font-extrabold text-flame">
+        {count}{suffix}
+      </p>
+      <p className="mt-3 text-base font-semibold text-on-dark-muted">{label}</p>
+    </div>
   );
 }

@@ -118,6 +118,9 @@ export default function Products() {
                   </span>
                 ))}
               </div>
+              <Link to="/quote" className="btn-energy mt-8">
+                Purchase Now <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </article>
         ))}
