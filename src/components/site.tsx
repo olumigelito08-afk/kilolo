@@ -233,11 +233,11 @@ export function SiteFooter() {
                   height="1024"
                   loading="lazy"
                   decoding="async"
-                  className="site-logo-on-dark -translate-x-[25px] h-36 w-36 object-contain"
+                  className="site-logo-on-dark -translate-x-[10px] h-36 w-36 object-contain md:translate-x-[20px]"
                 />
               </span>
             </Link>
-            <p className="relative z-10 -mt-7 w-full -translate-x-[26px] text-center text-sm font-bold text-flame md:translate-x-0">
+            <p className="relative z-10 -mt-7 w-full -translate-x-[11px] text-center text-sm font-bold text-flame md:-translate-x-[25px]">
               ...your satisfaction is our priority
             </p>
             </div>
