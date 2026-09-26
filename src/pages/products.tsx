@@ -143,10 +143,10 @@ export default function Products() {
                   Price
                 </p>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <p className="mt-1 text-4xl font-extrabold text-foreground">
-                  <span className="font-normal text-energy">₦</span>
+                <p className="mt-1 text-4xl font-extrabold text-flame">
+                  <span className="font-normal text-flame">₦</span>
                   {p.price.slice(1)}{" "}
-                  <span className="text-base font-normal text-energy">
+                  <span className="text-base font-normal text-flame">
                     {p.priceUnit}
                   </span>
                 </p>
